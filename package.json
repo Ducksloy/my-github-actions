@@ -5,8 +5,9 @@
   "description": "GitHub Actions CI Test Project",
   "main": "app.js",
   "scripts": {
-    "test": "npx mocha"
+    "test": "node_modules/.bin/mocha"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
