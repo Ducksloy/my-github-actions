@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "npx mocha"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +12,9 @@
   "type": "commonjs",
   "dependencies": {
     "chai": "^5.2.0",
-    "express": "^5.1.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
     "mocha": "^11.7.1"
   }
 }
