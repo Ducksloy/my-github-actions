@@ -1,8 +1,8 @@
 // test/test.js
 
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const app = require('../app/app'); // or '../app.js' depending on your structure
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import app from '../app.js'; // adjust path if needed
 
 const assert = chai.assert;
 chai.use(chaiHttp);
@@ -17,4 +17,3 @@ describe('GET /', function () {
       });
   });
 });
-

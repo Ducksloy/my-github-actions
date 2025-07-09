@@ -1,4 +1,7 @@
-const express = require('express');
+// app.js
+
+import express from 'express';
+
 const app = express();
 const port = 3000;
 
@@ -6,8 +9,10 @@ app.get('/', (req, res) => {
   res.send('Hello, GitHub Actions!');
 });
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
+  });
+}
 
-module.exports = app; // export for testing
+export default app;
