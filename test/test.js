@@ -2,7 +2,7 @@
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../app/app'); // Adjust path if needed
+const app = require('../app/app'); // or '../app.js' depending on your structure
 
 const assert = chai.assert;
 chai.use(chaiHttp);
