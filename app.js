@@ -1,17 +1,16 @@
-// app.js
-
 import express from 'express';
 
 const app = express();
-const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello, GitHub Actions!');
+  res.send('Hello world!');
 });
 
+let server;
+
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`);
+  server = app.listen(3000, () => {
+    console.log('Server listening on port 3000');
   });
 }
 
