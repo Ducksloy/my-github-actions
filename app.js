@@ -1,16 +1,22 @@
+// app.js
 import express from 'express';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const app = express();
+const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello world!');
+  res.send('Hello, GitHub Actions!');
 });
 
-let server;
+// ✅ Only start the server if app.js is run directly (not imported)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-if (process.env.NODE_ENV !== 'test') {
-  server = app.listen(3000, () => {
-    console.log('Server listening on port 3000');
+if (process.argv[1] === __filename) {
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
   });
 }
 
