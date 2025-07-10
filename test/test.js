@@ -1,21 +1,17 @@
-import request from 'supertest';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
 import app from '../app.js';
 
-describe('GET /', () => {
-  let server;
+const assert = chai.assert;
+chai.use(chaiHttp);
 
-  before((done) => {
-    server = app.listen(0, done); // use random free port
-  });
-
-  after((done) => {
-    server.close(done);
-  });
-
-  it('should return hello message', (done) => {
-    request(server)
+describe('GET /', function () {
+  it('should return hello message', function (done) {
+    chai.request(app)
       .get('/')
-      .expect(200)
-      .expect('Hello world!', done);
+      .end((err, res) => {
+        assert.equal(res.text, 'Hello, GitHub Actions!');
+        done();
+      });
   });
 });
