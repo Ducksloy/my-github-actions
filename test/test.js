@@ -1,17 +1,11 @@
-import chai from 'chai';
-import chaiHttp from 'chai-http';
+import request from 'supertest';
 import app from '../app.js';
 
-const assert = chai.assert;
-chai.use(chaiHttp);
-
-describe('GET /', function () {
-  it('should return hello message', function (done) {
-    chai.request(app)
-      .get('/')
-      .end((err, res) => {
-        assert.equal(res.text, 'Hello, GitHub Actions!');
-        done();
-      });
+describe('GET /', () => {
+  it('should return hello message', async () => {
+    const res = await request(app).get('/');
+    if (res.text !== 'Hello, GitHub Actions!') {
+      throw new Error('Response mismatch');
+    }
   });
 });
